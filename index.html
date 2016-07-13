@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Introduction to JavaScript</title>
+	
+	<meta name="description" content="An introduction to JavaScript Programming Language">
+	<meta name="author" content="Mohammed Shalaby">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="deck.js/core/deck.core.css">
+	<link rel="stylesheet" href="deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="deck.js/extensions/scale/deck.scale.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/style/web-2.0.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="deck.js/themes/transition/horizontal-slide.css">
+	
+	<script src="deck.js/modernizr.custom.js"></script>
+  <link href="prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="prettify.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide" id="title-slide">
+	<h1>Introduction to JavaScript</h1>
+</section>
+
+
+<section class="slide" id="name">
+	<h2>The Name: JavaScript</h2>
+	<ul>
+		<li class="slide" id="name-prefix">
+			<h3>Prefix: Java</h3>
+			<p>Is it related to Java? A subset maybe?</p>
+      <div class="slide" id="name-prefix-answer">
+        <h3>No</h3>
+        <p>It has nothing to do with Java</p>
+      </div>
+		</li>
+		<li class="slide" id="name-suffix">
+			<h3>Suffix: Script</h3>
+			<p>Is it just a scripting language?</p>
+			<p>Not a real programming language?</p>
+      <div class="slide" id="name-suffix-answer">
+        <h3>No</h3> <p>It is a complete programming language</p>
+      </div>
+		</li>
+	</ul>
+</section>
+
+<section class="slide" id="popularity">
+      <h2>Popularity</h2>
+  <ul>
+    <li><h3>Available in all browsers</h3></li>
+    <li><h3>The most popular programming language</h3></li>
+  </ul>
+</section>
+
+
+<section class="slide" id="misunderstood">
+	<h2>The Most Misunderstood Programming Language</h2>
+  <ul>
+    <li><h3>The name</h3><p>prefix and suffix</p></li>
+    <li><h3>It is different</h3><p>Programmers don't even bother to learn it</p></li>
+    <li><h3>Unfairly blamed for the awfulness of the DOM</h3></li>
+    <li><h3>Previous bad implementations</h3></li>
+    <li><h3>Lack of good books</h3></li>
+  </ul>
+</section>
+
+
+<section class="slide" id="design-good">
+      <h2>Design: Very Good Ideas</h2>
+  <ul>
+    <li><h3>Functions are first class objects</h3><p>They can be passed as arguments and return values</p></li>
+    <li><h3>Loose Typing</h3><p>Easier - more expressive</p></li>
+    <li><h3>Dynamic Objects</h3><p>General containers = hash tables</li>
+    <li><h3>Object Literal Notation</h3><p>Very expressive</p></li>
+  </ul>
+</section>
+
+<section class="slide" id="design-controversial">
+  <h2>Design: Controversial Ideas</h2>
+  <ul>
+    <li><h3>Prototypal Inheritance</h3><ul>
+      <li><h4>No Classes</h4></li>
+      <li><h4>Objects inherit directly form other objects</h4></li>
+      <li><h4>Very powerful</h4></li>
+      <li><h4>Not commonly understood very well</h4></li>
+    </ul></li>
+  </ul>
+</section>
+
+<section class="slide" id="design-bad">
+  <h2>Design: Very Bad Ideas</h2>
+  <ul>
+
+    <li><h3>Linkage through global variables</h3>
+      <ul>
+        <li><h4>Compilation units (script tags) are combined in a commmon global namespace</h4></li>
+        <li><h4>Variables can collide</h4></li>
+      </ul>
+    </li>
+
+  </ul>
+</section>
+
+<section class="slide" id="types">
+  <h2>Types (Values)</h2>
+  <ul>
+
+    <li><h3>Simple types</h3>
+      <ul>
+        <li><h4>Numbers</h4></li>
+        <li><h4>Strings</h4></li>
+        <li><h4>Booleans</h4></li>
+        <li><h4>null</h4></li>
+        <li><h4>undefined</h4></li>
+      </ul>
+    </li>
+
+    <li><h3>Objects</h3></li>
+
+  </ul>
+</section>
+
+<section class="slide" id="numbers">
+  <h2>Numbers</h2>
+  <ul>
+    <li><h3>Only one number type</h3></li>
+    <li><h3>64-bit floating point (same as Java's double)</h3>
+      <pre><code class="prettyprint">0.1 + 0.2      // 0.30000000000000004</code></pre>
+    </li>
+    <li><h3>100, 100.0, 1e2 are equivalent</h3></li>
+    <li><h3>NaN and Infinity are special numbers</h3></li>
+  </ul>
+</section>
+
+<section class="slide" id="numbers-nan">
+  <h2>Numbers: NaN</h2>
+  <ul>
+    <li><h3>Special Number: Not a Number</h3></li>
+    <li><h3>Result of erroneous operations</h3>
+      <pre><code class="prettyprint">2 * 'a'       // NaN</code></pre>
+    </li>
+    <li><h3>Toxic</h3>
+      <pre><code class="prettyprint">5 + NaN       // NaN</code></pre>
+    </li>
+    <li><h3>Not equal to any value (including itself)</h3>
+      <pre><code class="prettyprint">NaN == NaN       // false
+isNaN(NaN)       // true</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="numbers-infinity">
+  <h2>Numbers: Infinity</h2>
+  <ul>
+    <li><h3>Special Number</h3>
+      <pre><code class="prettyprint">1 / 0           // Infinity
+1 / Infinity    // 0</code></pre>
+    </li>
+    <li><h3>Represents numbers > <code>1.79769313486231570e+308</code></h3>
+      <pre><code class="prettyprint">1.8e308       // Infinity</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="numbers-number">
+  <h2>Numbers: Number function</h2>
+  <ul>
+
+    <li><h3>Converts a value into a number</h3>
+      <pre><code class="prettyprint">Number('')          // 0
+Number('0032')      // 32
+Number('123abc')    // NaN
+Number('abc')       // NaN</code></pre>
+    </li>
+    <li><h3>So does the '+' prefix operator</h3>
+      <pre><code class="prettyprint">+''                // 0
++'0032'            // 32
++'123abc'          // NaN
++'abc'             // NaN</code></pre>
+    </li>
+
+  </ul>
+</section>
+
+<section class="slide" id="numbers-parse">
+  <h2>Numbers: parseInt</h2>
+  <ul>
+    <li><h3>Also converts a value into a number</h3></li>
+    <li><h3>Stops at first non-digit character</h3>
+      <pre><code class="prettyprint">parseInt('123abc', 10)     // 123</code></pre>
+    </li>
+    <li><h3>If no radix is passed it defaults to 10 (8 if input starts with 0)</h3>
+      <pre><code class="prettyprint">parseInt('32')         // 32   (as decimal)
+parseInt('0032')       // 26   (as octal if starts with 0)
+</code></pre>
+    </li>
+    <li><h3>Always specify the radix</h3>
+      <pre><code class="prettyprint">parseInt('0032', 10)   // 32
+parseInt('0032', 8)    // 26
+</code></pre>
+    </li>
+
+  </ul>
+</section>
+
+<section class="slide" id="numbers-parse">
+  <h2>Numbers: Math</h2>
+  <ul>
+    <li><h3>An object containing methods that act on numbers</h3>
+    <p>abs, acos, asin, atan, atan2, ceil, cos, exp, floor, log, max, min, pow, random, round, sin, sqrt, tan</p>
+      <pre><code class="prettyprint">Math.floor(12.53)          // 12</code></pre>
+    </li>
+    <li><h3>Also contains some useful constants</h3>
+    <p>E, LN10, LN2, LOG10E, LOG2E, PI, SQRT1_2, SQRT2</p>
+      <pre><code class="prettyprint">Math.PI                   // 3.141592653589793</code></pre>
+    </li>
+  </ul>
+</section>
+<section class="slide" id="strings">
+  <h2>Strings</h2>
+  <ul>
+    <li><h3>0 or more 16-bit characters</h3></li>
+    <li><h3>A character is just a String of length 1</h3></li>
+    <li><h3>Immutable</h3></li>
+    <li><h3>String literal</h3>
+    <pre><code class="prettyprint">'abc' == "abc"    // true</code></pre>
+    </li>
+    <li><h3>length property (number of 16-bit characters)</h3>
+    <pre><code class="prettyprint">'abc'.length      // 3</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="strings-2">
+  <h2>Strings</h2>
+  <ul>
+    <li><h3>Concatenating</h3>
+    <pre><code class="prettyprint">'Java' + 'Script'     // 'JavaScript'</code></pre>
+    </li>
+    <li><h3>String function</h3>
+    <pre><code class="prettyprint">String(123)           // '123'</code></pre>
+    </li>
+    <li><h3>Strings have methods</h3>
+    <pre><code class="prettyprint">'cat'.toUpperCase()   // 'CAT'</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="boolean">
+  <h2>Boolean</h2>
+  <ul>
+    <li><h3>true - false</h3></li>
+    <li><h3>Boolean function</h3>
+      <pre><code class="prettyprint">Boolean(truthy_value)    // true</code></pre>
+    </li>
+    <li><h3>!! prefex operator</h3>
+      <pre><code class="prettyprint">!! falsy_value          // false</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="null-undefined">
+  <h2>null</h2>
+  <ul>
+    <li><h3>A value that is not anything</h3></li>
+  </ul>
+  <h2>undefined</h2>
+  <ul>
+    <li><h3>A value that is not even a value</h3></li>
+    <li><h3>The default value for variables and parameters</h3></li>
+    <li><h3>The value of missing members of an object</h3></li>
+  </ul>
+</section>
+
+
+<section class="slide" id="falsy-values">
+  <h2>Falsy values</h2>
+  <ul>
+    <li><h3>6 possible falsy values</h3>
+      <pre><code class="prettyprint">!! false         // false
+!! null          // false
+!! undefined     // false
+!! ''            // false
+!! 0             // false
+!! NaN           // false</code></pre>
+    </li>
+    <li><h3>All other values are truthy</h3>
+      <pre><code class="prettyprint">!! '0'          // true</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="objects">
+  <h2>Objects</h2>
+  <ul>
+    <li><h3>An object is a container of properties</h3></li>
+    <li><h3>A property has a name (string) and value (any type)</h3></li>
+    <li><h3>Class-free (No constraints on names/values of new properties)</h3></li>
+    <li><h3>Objects are hash tables</h3></li>
+    <li><h3>Protype linkage</h3></li>
+    <li><h3>Arrays, functions, regular expressions and objects are objects</h3></li>
+  </ul>
+</section>
+
+<section class="slide" id="object-literal">
+  <h2>Objects: Object literal</h2>
+  <ul>
+    <li><h3>Very convenient for creating new object values</h3></li>
+    <li><h3>A pair of curly braces surrounding 0+ name/value pairs</h3>
+      <pre><code class="prettyprint">var empty_object = {};</code></pre>
+      <pre><code class="prettyprint">var person = { 'first-name': 'John' };</code></pre>
+      <pre><code class="prettyprint">var city = {
+  name: 'Alexandria',
+  location: { latitude: 31.2, longitude: 29.9 }
+};</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-retrieval">
+  <h2>Objects: Retrieval</h2>
+  <ul>
+    <li><h3>Subscript notation</h3>
+      <pre><code class="prettyprint">person['first-name']    // 'John'
+city['name']            // 'Alexandria'</code></pre>
+    </li>
+    <li><h3>Dot notation</h3>
+      <pre><code class="prettyprint">city.name               // 'Alexandria'
+city.location.latitude  // 31.2</code></pre>
+    </li>
+    <li><h3>Missing properties</h3>
+      <pre><code class="prettyprint">person.nickname        // undefined</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-retrieval-2">
+  <h2>Objects: Retrieval</h2>
+  <ul>
+    <li><h3>|| operator (set default values)</h3>
+      <pre><code class="prettyprint">var name = person.nickname || 'anonymous';    // 'anonymous'</code></pre>
+    </li>
+    <li><h3>&& operator (handle missing nested objects)</h3>
+      <pre><code class="prettyprint">city.country                       // undefined 
+city.country.name                  // throws a TypeError
+city.country && city.country.name  // undefined</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-update">
+  <h2>Objects: Update</h2>
+  <ul>
+    <li><h3>Simply by assignment</h3>
+      <pre><code class="prettyprint">person['first-name'] = 'Thomas';    // Replaced 'first-name'</code></pre>
+      <pre><code class="prettyprint">person['last-name'] = 'Anderson';   // Added 'last-name'</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-reference">
+  <h2>Objects: Reference</h2>
+  <ul>
+    <li><h3>Objects are passed around by reference</h3>
+      <pre><code class="prettyprint">var x = person;    // x & person refer to the same object
+x.nickname = 'Neo';
+
+person.nickname    // 'Neo'
+</code></pre>
+      <pre><code class="prettyprint">var a = {}, b = {}, c = {};      // different empty objects</code></pre>
+      <pre><code class="prettyprint">var a = b = c = {};              // the same empty object</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-prototype">
+  <h2>Objects: Prototype</h2>
+  <ul>
+    <li><h3>Every object is linked to a prototype object</h3></li>
+    <li><h3>Objects created by object literal are linked to Object.prototype</h3>
+      <pre><code class="prettyprint">Object.prototype.foo = 'bar';
+var a = {}, b = {};
+a.foo      // 'bar'
+b.foo      // 'bar'
+</code></pre>
+    </li>
+    <li><h3>Protype link is used only for retrieval (prototype chain)</h3>
+      <pre><code class="prettyprint">a.foo = 'blah';  // Added foo property to a
+a.foo            // 'blah'
+b.foo            // 'bar'
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-prototype-2">
+  <h2>Objects: Prototype</h2>
+  <ul>
+    <li><h3>We can specify the prototype for a new object</h3></li>
+    <li><h3>Complex but simplified by <code>Object.create</code> function (in new JS editions)</h3>
+      <pre><code class="prettyprint">if (typeof Object.create != 'function') {
+  Object.create = function(o) {
+    var F = function F(){};
+    F.prototype = o;
+    return new F();
+  };
+}
+
+var p = {foo: 'bar'};
+
+var a = Object.create(p);
+
+a.foo          // 'bar'
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-refelection">
+  <h2>Objects: Reflection</h2>
+  <ul>
+    <li><h3>hasOwnProperty</h3>
+      <pre><code class="prettyprint">Object.prototype.foo = 'bar';
+var a = {foo: 'blah'}, b = {};
+a.foo      // 'blah'
+b.foo      // 'bar'
+
+a.hasOwnProperty('foo')    // true
+b.hasOwnProperty('foo')    // false
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-enumeration">
+  <h2>Objects: Enumeration</h2>
+  <ul>
+    <li><h3>for in</h3>
+      <pre><code class="prettyprint">var someone = {'first-name': 'John', 'last-name': 'Doe'};
+
+var person = Object.create(someone);
+person.profession = 'artist';
+person.age = 30;
+
+for (p in person) {
+  var mark = person.hasOwnProperty(p) ? '  ' : '* '
+  console.log(mark + p + ': ' + person[p]);
+}
+//   profession: artist
+//   age: 30
+// * first-name: John
+// * last-name: Doe</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-delete">
+  <h2>Objects: Delete</h2>
+  <ul>
+    <li><h3><code>delete</code> removes a property from an object</h3>
+      <pre><code class="prettyprint">delete person.age;
+person.age                       // undefined</code></pre>
+    </li>
+    <li><h3>May let a prototype property shine through</h3>
+      <pre><code class="prettyprint">person['first-name'] = 'Jason';
+person['first-name']             // 'Jason'
+
+delete person['first-name']
+person['first-name']             // 'John'</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="object-global-abatement">
+  <h2>Objects: Reducing Global Footprint</h2>
+  <ul>
+    <li><h3>A single global variable for your application</h3>
+      <pre><code class="prettyprint">var MyAPP = {};</code></pre>
+    </li>
+    <li><h3>Contains all your variables (as properties)</h3>
+      <pre><code class="prettyprint">MyAPP.someone = {'first-name': 'John', 'last-name': 'Doe'};
+MyApp.person = Object.create(MyAPP.someone);</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-objects">
+  <h2>Functions</h2>
+  <ul>
+    <li><h3>The best thing in JavaScript</h3></li>
+    <li><h3>A function encloses a set of statements that execute when invoked</h3></li>
+    <li><h3>Functions are objects</h3>
+      <ul>
+        <li><h4>Linked to a prototype (Function.prototype)</h4></li>
+        <li><h4>Can be stored in variables, objects, and arrays</h4></li>
+        <li><h4>Can be passed as arguments to functions and can be returned from functions</h4></li>
+      </ul>
+    </li>
+    <li><h3>A function has a prototype property</h3></li>
+    <li><h3>Uses:</h3>
+      <ul>
+        <li><h4>Code reuse, Information hiding, Composition</h4></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-function-literal">
+  <h2>Functions: Function Literal</h2>
+  <ul>
+    <li><h3>4 parts:</h3>
+      <ol>
+        <li><h4>function (reserved word)</h4></li>
+        <li><h4>name (optional)</h4></li>
+        <li><h4>parameters</h4></li>
+        <li><h4>body</h4></li>
+      </ol>
+      <pre><code class="prettyprint">var add = function (a, b) {
+  return a + b;
+};</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-invocation">
+  <h2>Functions: Invocation</h2>
+  <ul>
+    <li><h3>Extra parameters: <code>this</code> & <code>arguments</code></h3></li>
+    <li><h3>Invocation Patterns</h3>
+      <ol>
+        <li><h4>Method invocation pattern</h4></li>
+        <li><h4>Function invocation pattern</h4></li>
+        <li><h4>Constructor invocation pattern</h4></li>
+        <li><h4>Apply invocation pattern</h4></li>
+      </ol>
+    </li>
+    <li><h3>Arguments</h3>
+      <ul>
+        <li><h4>No error if not matching number of parameters</h4></li>
+        <li><h4>Extra arguments are ignored</h4></li>
+        <li><h4>Missing will be <code>undefined</code></h4></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-method">
+  <h2>Functions: Method Invocation Pattern</h2>
+  <ul>
+    <li><h3>Function is stored as a property of an object</h3></li>
+    <li><h3><code>this</code> will be the object</h3>
+      <pre><code class="prettyprint">var myObject = {
+  value: 0,
+  increment: function (inc) {
+    this.value += inc;
+  }
+};
+
+myObject.increment(2);
+
+myObject.value;                      // 3</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-function">
+  <h2>Functions: Function Invocation Pattern</h2>
+  <ul>
+    <li><h3>Function is not a property of an object</h3></li>
+    <li><h3><code>this</code> will be the global object (design mistake)</h3>
+      <pre><code class="prettyprint">myObject.double = function () {
+  var that = this;      // Workaround.
+  var helper = function () {
+    that.value = 2 * that.value
+  };
+  helper();             // Invoke helper as a function.
+};
+
+myObject.double();      // Invoke double as a method.
+myObject.getValue();    // 4</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-constructor">
+  <h2>Functions: Constructor Invocation Pattern</h2>
+  <ul>
+    <li><h3>Invoked with <code>new</code> prefix</h3></li>
+    <li><h3>A new object is created & linked to function's prototype property</h3></li>
+    <li><h3><code>this</code> is bound to the new object</h3>
+      <pre><code class="prettyprint">var Car = function (speed) {
+  this.speed = speed;
+};
+
+Car.prototype.move = function() {
+  return 'moving at ' + this.speed;
+};
+
+var my_car = new Car('40 k/h');
+
+my_car.move();                 // moving at 40 k/h
+      </code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-apply">
+  <h2>Functions: Apply Invocation Pattern</h2>
+  <ul>
+    <li><h3><code>apply</code> is a method of functions</h3></li>
+    <li><h3>2 parameters: value for <code>this</code> & array of arguments</h3>
+      <pre><code class="prettyprint">var util = {
+  get_status: function(uppercase){
+    return uppercase ?
+      this.status.toUpperCase() : this.status;
+  }
+};
+
+var obj = { status: 'ok' };
+
+util.get_status.apply(obj, [true]);      // 'OK'</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-arguments">
+  <h2>Functions: Arguments</h2>
+  <ul>
+    <li><h3><code>arguments</code>: array of parameters passed to a function</h3></li>
+    <li><h3>array-like object</h3>
+      <pre><code class="prettyprint">
+var sum = function () {
+  var i, s = 0;
+  for (i = 0; i < arguments.length; i += 1) {
+      s += arguments[i];
+  }
+  return s;
+};
+
+sum(4, 8, 15, 16, 23, 42)         // 108
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-return">
+  <h2>Functions: Return</h2>
+  <ul>
+    <li><h3>Functions always return a value</h3></li>
+    <li><h3>If no return value is given <code>undefined</code> is returned</h3></li>
+    <li><h3>If invoked with <code>new</code> and no return is given the new object is returned</h3>
+      <pre><code class="prettyprint">var Car = function (speed) {
+  this.speed = speed;
+};
+
+var my_car = new Car('40 k/h');
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-scope">
+  <h2>Functions: Scope</h2>
+  <ul>
+    <li><h3>No block scope</h3></li>
+    <li><h3>Only function scope</h3>
+      <pre><code class="prettyprint">var foo = function () {
+  var a = 3, b = 5;
+
+  var bar = function () {
+    var b = 7, c = 11;
+    a += b + c;
+  };
+
+  bar();
+};</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-closure">
+  <h2>Functions: Closure</h2>
+  <ul>
+    <li><h3>Inner functions have access to outer function's parameters and variables.</h3>
+      <pre><code class="prettyprint">var elevator_maker = function() {
+  var level = 1;
+  var get_level = function() { return "level: " + level; }
+
+  return {
+    up:   function(n) { level += n; return get_level(); },
+    down: function(n) { level -= n; return get_level(); },
+  };
+};
+
+var elevator = elevator_maker();
+
+elevator.up(3);                    // level: 4
+elevator.down(1);                  // level: 3</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-module">
+  <h2>Functions: Module</h2>
+  <ul>
+    <li><h3>Can eliminate the use of global variables</h3>
+      <pre><code class="prettyprint">var elevator = function() {
+  var level = 1;
+  var get_level = function() { return "level: " + level; }
+
+  return {
+    up:   function(n) { level += n; return get_level(); },
+    down: function(n) { level -= n; return get_level(); },
+  };
+}();
+
+elevator.up(3);                    // level: 4
+elevator.down(1);                  // level: 3</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="functions-memoization">
+  <h2>Functions: Memoization</h2>
+  <ul>
+    <li><h3>Remember the results of previous operations</h3>
+      <pre><code class="prettyprint">var fibonacci = function (n) {
+  return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};      
+
+var fibonacci = function () {
+  var memo = {0: 0, 1: 1};
+  return function fib (n) {
+    var result = memo[n];
+    if (typeof result !== 'number') {
+      result = fib(n - 1) + fib(n - 2);
+      memo[n] = result;
+    }
+    return result;
+  };
+}();
+
+fibonacci(10)             // 55</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="inheritance-pseudoclassical">
+  <h2>Inheritance: Pseudoclassical</h2>
+  <ul>
+    <li><h3>Intended to look sort of object-oriented</h3></li>
+    <li><h3>Provided by using <code>new</code> prefix</h3></li>
+    <li><h3>Hides the true nature of the language</h3>
+      <pre><code class="prettyprint">var Vehicle = function(name){ this.name = name; };
+Vehicle.prototype.get_name = function(){ return this.name; };
+
+var vehicle = new Vehicle('Just a ride');
+
+var Car = function(name, racing){
+  this.name = name;
+  this.racing = racing;
+};
+Car.prototype = vehicle;
+
+var my_car = new Car('My car', false);
+my_car.get_name();            // 'My car'
+my_car.racing;                // false</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="inheritance-prototypal">
+  <h2>Inheritance: Prototypal</h2>
+  <ul>
+    <li><h3>A new object can inherit the properties of an old object</h3></li>
+    <li><h3>Start with a useful object and then make many more like it</h3>
+      <pre><code class="prettyprint">var vehicle = {
+  name: 'Just a ride',
+  get_name: function(){ return this.name; }
+};
+
+var my_car = Object.create(vehicle);
+my_car.name = 'My car'
+my_car.racing = false;
+
+my_car.get_name();            // 'My car'
+my_car.racing;                // false</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="inheritance-functional">
+  <h2>Inheritance: Functional</h2>
+  <ul>
+    <li><h3>Allows privacy</h3>
+      <pre><code class="prettyprint">var vehicle = function(spec) {
+  spec.name = spec.name || 'Just a ride';
+  var that = {};
+
+  that.get_name = function(){ return spec.name; };
+
+  return that;
+};
+
+var car = function(spec) {
+  spec.racing = !! spec.racing;
+  var that = vehicle(spec);
+
+  that.is_racing = function(){ return spec.racing; };
+
+  return that;
+};
+
+my_car = car({name: 'My car', racing: false});
+
+my_car.get_name();            // 'My car'
+my_car.is_racing();           // false</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="Arrays">
+  <h2>Arrays</h2>
+  <ul>
+    <li><h3>Array-like objects</h3></li>
+    <li><h3>Linked to Array.prototype</h3></li>
+    <li><h3>No linear allocated memory or computed offest access</h3></li>
+    <li><h3>Have their own literal notation</h3></li>
+    <li><h3>Elements can be of any value</h3></li>
+  </ul>
+</section>
+
+<section class="slide" id="Arrays-2">
+  <h2>Arrays</h2>
+  <ul>
+    <li><h3>Array literal</h3>
+      <pre><code class="prettyprint">var a = [];
+var misc = [ 'string', 98.6, true, null, undefined,
+  ['nested', 'array'], {x: 1}, Infinity ];
+</code></pre>
+    </li>
+    <li><h3>length property is not upper bound</h3>
+      <pre><code class="prettyprint">var a = [];
+a.length          // 0
+a[10] = 1;
+a.length          // 11
+a[4]              // undefined</code></pre>
+    </li>
+    <li><h3>Have methods</h3>
+      <pre><code class="prettyprint">var a = [];
+a.push(1);
+a                 // [1] </code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="bad">
+  <h2>Bad parts</h2>
+  <ul>
+    <li><h3>Global variables</h3></li>
+    <li><h3>No block scope</h3></li>
+    <li><h3>Semicolon insertion</h3>
+      <pre><code class="prettyprint">return
+{
+  status: true
+};      
+      
+return {
+  status: true
+};</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="bad-2">
+  <h2>Bad parts</h2>
+  <ul>
+    <li><h3>floating point</h3></li>
+    <li><h3>Phony arrays</h3></li>
+    <li><h3>+ overloading</h3>
+      <pre><code class="prettyprint">1 + 2               // 3
+'1' + 2             // '12'
+1 + '2'             // '12'</code></pre>
+    </li>
+    <li><h3>typeof</h3>
+      <pre><code class="prettyprint">typeof null         // object
+typeof []           // object
+</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="bad-3">
+  <h2>Bad parts</h2>
+  <ul>
+    <li><h3>eval</h3></li>
+    <li><h3>Bitwise operators</h3></li>
+    <li><h3>==</h3>
+      <pre><code class="prettyprint">'' == '0'          // false
+0 == ''            // true
+0 == '0'           // true
+false == 'false'   // false
+false == '0'       // true
+false == undefined // false
+false == null      // false
+null == undefined  // true
+' \t\r\n ' == 0    // true
+      </code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="references">
+  <h2>References</h2>
+  <ul>
+    <li><h3>JavaScript: The Good Parts</h3><h4>by Douglas Crockford</h4></li>
+  </ul>
+</section>
+
+<section class="slide" id="thankyou">
+  <h1>Thank You</h1>
+</section>
+
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="deck.js/jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/menu/deck.menu.js"></script>
+<script src="deck.js/extensions/goto/deck.goto.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+  prettyPrint();
+});
+</script>
+
+</body>
+</html>
